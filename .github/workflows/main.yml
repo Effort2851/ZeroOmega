@@ -40,7 +40,7 @@ jobs:
 
       # 步骤 7：输出编译后的文件
       - name: Upload build output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: omega-extension-build
           path: omega-target-chromium-extension/build  # 上传构建文件夹到 GitHub Actions 作为 Artifacts
