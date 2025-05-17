@@ -1,23 +1,46 @@
 on: push
 
-jobs: 
-  job1: 
-    runs-on: ubuntu-latest
-    steps: 
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      
-    - run: |
-        sudo npm install -g grunt-cli@1.2.0 bower --force
-        cd ${{ github.workspace }}/omega-build
-        npm run deps 
-        npm run dev 
-        grunt
-        cd .. 
-        ls omega-target-chromium-extension/build/
-        
-    - name: Upload build output
-      uses: actions/upload-artifact@v3
-      with: 
-        name: omega-extension-build
-        path: omega-target-chromium-extension/build
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境执行工作流
+
+    steps:
+      # 步骤 1：设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # 你可以根据项目要求指定版本
+
+      # 步骤 2：安装 grunt-cli 和 bower
+      - name: Install grunt-cli and bower
+        run: |
+          sudo npm install -g grunt-cli@1.2.0 bower --force
+
+      # 步骤 3：拉取项目代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 步骤 4：进入 omega-build 文件夹
+      - name: Install project dependencies
+        run: |
+          cd ${{ github.workspace }}/omega-build
+          npm run deps  # 安装所有模块的依赖
+
+      # 步骤 5：进行本地开发链接
+      - name: Run local dev setup
+        run: |
+          cd ${{ github.workspace }}/omega-build
+          npm run dev  # 运行 npm link
+
+      # 步骤 6：构建项目
+      - name: Build project
+        run: |
+          cd ${{ github.workspace }}/omega-build
+          grunt  # 执行 grunt 任务进行构建
+
+      # 步骤 7：输出编译后的文件
+      - name: Upload build output
+        uses: actions/upload-artifact@v3
+        with:
+          name: omega-extension-build
+          path: omega-target-chromium-extension/build  # 上传构建文件夹到 GitHub Actions 作为 Artifacts
