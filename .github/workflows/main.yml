@@ -8,6 +8,7 @@ jobs:
       uses: actions/checkout@v2
       
     - run: |
+        sudo npm install -g grunt-cli@1.2.0 bower
         cd ${{ github.workspace }}/omega-build
         npm run deps 
         npm run dev 
