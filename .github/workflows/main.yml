@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - run: |
-      npm install -g grunt-cli@1.2.0 bower
-      cd omega-build
-      npm run deps 
-      npm run dev 
-      grunt
+        sudo npm install -g grunt-cli@1.2.0 bower
+        cd omega-build
+        npm run deps 
+        npm run dev 
+        grunt
       cd .. 
       ls omega-target-chromium-extension/build/
