@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@v2
       
     - run: |
-        cd ${{ github.workspace }}\omega-build
+        cd ${{ github.workspace }}/omega-build
         npm run deps 
         npm run dev 
         grunt
