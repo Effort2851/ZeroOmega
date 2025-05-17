@@ -15,3 +15,9 @@ jobs:
         grunt
         cd .. 
         ls omega-target-chromium-extension/build/
+        
+    - name: Upload build output
+      uses: actions/upload-artifact@v3
+      with: 
+        name: omega-extension-build
+        path: omega-target-chromium-extension/build
