@@ -7,8 +7,8 @@ jobs:
     - run: |
       npm install -g grunt-cli@1.2.0 bower
       cd omega-build
-      npm run deps # This runs npm install in every module.
-      npm run dev # This runs npm link to aid local development.
+      npm run deps 
+      npm run dev 
       grunt
       cd .. 
       ls omega-target-chromium-extension/build/
