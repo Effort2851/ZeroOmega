@@ -5,7 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - run: |
-        sudo npm install -g grunt-cli@1.2.0 bower
         cd omega-build
         npm run deps 
         npm run dev 
