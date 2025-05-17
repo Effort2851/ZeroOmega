@@ -48,7 +48,7 @@ class FirefoxProxyImpl extends ProxyImpl
         blobUrl = URL.createObjectURL(blob)
         browser.proxy.settings.set({
           value: {
-            proxyDNS: true,
+            proxyDNS: false,
             proxyType: 'autoConfig',
             autoConfigUrl: blobUrl
           }
@@ -111,7 +111,7 @@ class FirefoxProxyImpl extends ProxyImpl
     if proxyInfo.type == 'socks'
       # Enable SOCKS remote DNS.
       # TODO(catus): Maybe allow the users to configure this?
-      proxyInfo.proxyDNS = true
+      proxyInfo.proxyDNS = false
 
     # TODO(catus): Maybe allow proxyDNS for socks4? Server may support SOCKS4a.
     # It cannot default to true though, since SOCKS4 servers that does not have
