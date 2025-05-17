@@ -1,4 +1,4 @@
---forceon: push
+on: push
 
 jobs: 
   job1: 
