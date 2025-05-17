@@ -5,9 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - run: |
-        cd omega-build
-        npm run deps 
-        npm run dev 
-        grunt
-        cd .. 
-        ls omega-target-chromium-extension/build/
+        cd ls
