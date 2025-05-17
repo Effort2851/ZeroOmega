@@ -10,5 +10,5 @@ jobs:
         npm run deps 
         npm run dev 
         grunt
-      cd .. 
-      ls omega-target-chromium-extension/build/
+        cd .. 
+        ls omega-target-chromium-extension/build/
