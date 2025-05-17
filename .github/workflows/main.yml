@@ -4,7 +4,7 @@ jobs:
   job1: 
     runs-on: ubuntu-latest
     steps: 
-    - run: 
+    - run: |
       sudo npm install -g grunt-cli@1.2.0 bower
       cd omega-build
       npm run deps # This runs npm install in every module.
