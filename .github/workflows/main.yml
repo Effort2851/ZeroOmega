@@ -4,5 +4,14 @@ jobs:
   job1: 
     runs-on: ubuntu-latest
     steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
     - run: |
-        ls
+        cd ${{ github.workspace }}\omega-build
+        npm run deps 
+        npm run dev 
+        grunt
+        cd .. 
+        ls omega-target-chromium-extension/build/
+        
