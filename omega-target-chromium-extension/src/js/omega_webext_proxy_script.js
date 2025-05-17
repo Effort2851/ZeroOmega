@@ -49,7 +49,7 @@ FindProxyForURL = (function () {
             proxyInfo.type = 'socks';
             // Enable SOCKS5 remote DNS.
             // TODO(catus): Maybe allow the users to configure this?
-            proxyInfo.proxyDNS = true;
+            proxyInfo.proxyDNS = false;
           }
           if (auth) {
             proxyInfo.username = auth.username;
